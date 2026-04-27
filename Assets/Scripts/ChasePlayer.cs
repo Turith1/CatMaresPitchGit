@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ChasePlayer : StateMachineBehaviour
 {
-
+    [SerializeField]
     private EnemyNavMesh enemy;
-    ActionGhosts enemyController;
+    [SerializeField]
+    private ActionGhosts enemyController;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        enemy = animator.GetComponent<EnemyNavMesh>();
-        enemyController = animator.GetComponent<ActionGhosts>();
+        enemy = animator.GetComponentInParent<EnemyNavMesh>();
+        enemyController = animator.GetComponentInParent<ActionGhosts>();
 
     }
 

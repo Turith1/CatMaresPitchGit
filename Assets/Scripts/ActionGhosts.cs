@@ -7,13 +7,13 @@ public class ActionGhosts : MonoBehaviour
 {
     public Rigidbody enemyRb;
     public Rigidbody targetRb;
-    [SerializeField] public NavMeshAgent _agenteFantasma;
-    [HideInInspector] public Transform player;
+    public NavMeshAgent _agenteFantasma;
+    public Transform player;
 
     public GameObject powerUpPrefab;
     public GameObject zinimigo;
-    public float _distanceEnemy = 10f;
-    public float _distanceAttack = 1f;
+    public float _distanceEnemy = 20f;
+    public float _distanceAttack = 4f;
     public EnemyNavMesh _ronda;
 
     public int life = 5;
@@ -54,7 +54,7 @@ public class ActionGhosts : MonoBehaviour
     {
         if (player == null) return false;
         float dist = Vector3.Distance(transform.position, player.position);
-        return dist <= _distanceEnemy;
+        return dist <= _distanceAttack;
     }
 
 }

@@ -144,6 +144,7 @@ MonoBehaviour:
   _lookRotation: 0
   _looksides: 0
   _cameraFocus: {fileID: 4748172996184131630}
+  _caminhada: {fileID: 0}
 --- !u!54 &1953029042791339270
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -443,7 +444,7 @@ MonoBehaviour:
   range: 4
   targetMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   requireFrozen: 1
   cooldown: 0.5
   captureSfx: {fileID: 0}

@@ -21,7 +21,6 @@ public class EnemyNavMesh : MonoBehaviour
     {
         _rotaAtual = Random.Range(0, _rotaEnemy.Length);
         m_agent.destination = _rotaEnemy[_rotaAtual].position;
-        Debug.Log(_rotaAtual);
         //Quando o inimigo chegar no way point, mandar para o novo point aleatório do array.
     }
 
