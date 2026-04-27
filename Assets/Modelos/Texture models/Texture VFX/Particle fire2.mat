@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7920258647146396834
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Particle fire2
+  m_Shader: {fileID: -6465566751694194690, guid: 290fdfb032a5f80409fdb10b6f811eb0,
+    type: 3}
+  m_Parent: {fileID: 2100000, guid: 4260b46253e9c2c46bc3786fa7be4ddc, type: 2}
+  m_ModifiedSerializedProperties: 30
+  m_ValidKeywords:
+  - _RECEIVE_SHADOWS_OFF
+  - _SURFACE_TYPE_TRANSPARENT
+  m_InvalidKeywords:
+  - EFFECT_BUMP
+  - _ALPHABLEND_ON
+  - _COLORADDSUBDIFF_ON
+  - _EMISSION
+  - _FADING_ON
+  - _REQUIRE_UV2
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
+  - SHADOWCASTER
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AlphaClip: 0
+    - _Blend: 2
+    - _BlendModePreserveSpecular: 0
+    - _CastShadows: 0
+    - _ColorMode: 1
+    - _Cull: 2
+    - _Cutoff: 0.216
+    - _DistortionBlend: 0.119
+    - _DistortionEnabled: 1
+    - _DistortionStrength: 16.98
+    - _DistortionStrengthScaled: 1.698
+    - _DstBlend: 1
+    - _DstBlendAlpha: 1
+    - _FlipbookMode: 1
+    - _Mode: 2
+    - _QueueControl: 1
+    - _ReceiveShadows: 0
+    - _SoftParticlesFarFadeDistance: 2.59
+    - _SoftParticlesNearFadeDistance: 0
+    - _SrcBlend: 5
+    - _Surface: 1
+    - _WorkflowMode: 1
+    - _ZTest: 2
+    - _ZWrite: 0
+    - _forca: 1.1
+    - _mapa: 0
+    - _velocity: 3.31
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 1.9245284, g: 0.48015523, b: 0, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0.3861004, b: 0, a: 0}
+  m_BuildTextureStacks: []

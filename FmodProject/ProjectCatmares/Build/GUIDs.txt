@@ -1,0 +1,13 @@
+{af8299a2-aa91-447b-99f5-3bc0d8711102} bank:/Master
+{379fb976-dbea-0839-1fbc-b13e2982179a} bank:/Master.strings
+{4f2bdfa1-404b-4820-878d-4fa60310b518} bank:/Musics
+{3f87d192-cf12-475c-bd9a-0c1c687a5090} bank:/SFX
+{5e7c43b1-6078-4971-8e9f-1deefc66cdaa} bus:/
+{ce757327-57a1-4ab9-9255-d6f072148b9b} bus:/Reverb
+{04805712-3ed3-4565-bfa7-64e8d57871ca} event:/AtackMonstro
+{1f815f6d-ddac-46f3-b518-1b681cd6e005} event:/Botao
+{8bd48300-4eb2-43a4-be62-c0df8af904dd} event:/BottonClick
+{f9e5dd82-dd32-4fa2-9b1c-f527b458a5a3} event:/BottonHight
+{a89195b6-035f-44ee-a0e5-3180dfaff430} event:/Music MainGame
+{f1e0b944-7f0e-4194-9824-90eef02910aa} event:/MusicMenu
+{be02952e-ed5c-4099-84bc-272d22e4f86f} event:/montro procurando

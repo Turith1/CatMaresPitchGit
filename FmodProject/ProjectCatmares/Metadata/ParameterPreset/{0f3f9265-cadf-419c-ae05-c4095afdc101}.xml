@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{0f3f9265-cadf-419c-ae05-c4095afdc101}">
+		<property name="name">
+			<value>PickBottle</value>
+		</property>
+		<relationship name="folder">
+			<destination>{0f2eb6cc-991f-4d2c-9817-d14fb18439e0}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{126c9ac3-4d24-4f12-a8f0-a5cf8024971e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{126c9ac3-4d24-4f12-a8f0-a5cf8024971e}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

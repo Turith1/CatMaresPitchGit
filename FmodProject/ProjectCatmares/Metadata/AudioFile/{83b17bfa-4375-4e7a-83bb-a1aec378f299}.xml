@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{83b17bfa-4375-4e7a-83bb-a1aec378f299}">
+		<property name="assetPath">
+			<value>Botao hight.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.0114285714285716</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{755ccb50-e73e-4cd7-a203-10a7676ade2f}</destination>
+		</relationship>
+	</object>
+</objects>
