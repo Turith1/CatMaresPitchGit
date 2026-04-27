@@ -65,7 +65,7 @@ public class Movement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         _move = context.ReadValue<Vector2>();
-        if(_move.x != 0 || _move.y != 0)
+        if(_move != Vector2.zero)
         {
             _caminhada.SetBool("Idle", false);
         }
