@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 6372516387553898678}
   - component: {fileID: 5792704801213201094}
   - component: {fileID: 8566808184017523606}
-  - component: {fileID: 4995319625927489540}
   m_Layer: 0
   m_Name: Ghost0
   m_TagString: Untagged
@@ -69,7 +68,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -145,7 +144,7 @@ MonoBehaviour:
   powerUpPrefab: {fileID: 7533640711196682219, guid: 19078f5d61390894bb3f9d937cc3df4d,
     type: 3}
   zinimigo: {fileID: 1953962782518614567}
-  _distanceEnemy: 8
+  _distanceEnemy: 20
   _distanceAttack: 1
   _ronda: {fileID: 6055423666940302404}
   life: 5
@@ -218,7 +217,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  cooldown: 0.5
+  cooldown: 10
+  lastHitTime: -999
+  _anim: {fileID: 0}
+  _ghost: {fileID: 0}
 --- !u!114 &7975458794127882592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,27 +358,6 @@ MonoBehaviour:
   - {fileID: 8380701855245777303}
   - {fileID: 2507448884485440983}
   - {fileID: 3561144989101207128}
---- !u!95 &4995319625927489540
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953962782518614567}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9984b0033b3170345af396fbbd2f5750, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6006840722310770556
 PrefabInstance:
   m_ObjectHideFlags: 0

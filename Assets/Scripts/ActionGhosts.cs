@@ -29,20 +29,6 @@ public class ActionGhosts : MonoBehaviour
             player = targetRb.transform;
     }
 
-    /*void Update()
-    {
-        //Movement
-            float direction = (targetRb.position - enemyRb.position).magnitude;
-        if (direction <= _distanceEnemy )
-        {
-            Chase();
-        }
-        else
-        {
-            _ronda.Ronda();
-        }
-    }*/
-
     public bool IsPlayerInRange()
     {
         if (player == null) return false;
@@ -54,6 +40,7 @@ public class ActionGhosts : MonoBehaviour
     {
         if (player == null) return false;
         float dist = Vector3.Distance(transform.position, player.position);
+        Debug.Log(dist);
         return dist <= _distanceAttack;
     }
 
