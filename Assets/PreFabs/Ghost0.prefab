@@ -241,7 +241,7 @@ MonoBehaviour:
   animator: {fileID: 159315276120167149}
   renderers: []
   freezeTint: {r: 0.5, g: 0.8, b: 1, a: 1}
-  iceVfxPrefab: {fileID: 1953962782518614567}
+  iceVfxPrefab: {fileID: 0}
 --- !u!114 &-1622061210341192425
 MonoBehaviour:
   m_ObjectHideFlags: 0
