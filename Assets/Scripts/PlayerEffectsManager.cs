@@ -13,6 +13,11 @@ public class PlayerEffectsManager : MonoBehaviour
     [Header("Invisibilidade")]
     public bool useLayerSwapForInvisibility = true;
     public string invisibleLayerName = "PlayerInvisible";
+    public bool _isInvisible = false;
+
+    [Header("Speed Boost")]
+    [SerializeField]
+    private float _initialSpeed = 6.58f;
 
     int originalLayer;
     Renderer[] renderers;
@@ -75,15 +80,17 @@ public class PlayerEffectsManager : MonoBehaviour
                 break;
 
             case ItemEffectType.Invisibility:
-                StartOrStackTimed(item,
+                /*StartOrStackTimed(item,
                     onStart: () => SetInvisible(true),
-                    onEnd: () => SetInvisible(false));
+                    onEnd: () => SetInvisible(false));*/
+                Invisible();
                 break;
 
             case ItemEffectType.SpeedBoost:
-                StartOrStackTimed(item,
+                /*StartOrStackTimed(item,
                     onStart: () => ModifyMoveSpeed(item.value),          // multiplica
-                    onEnd: () => ModifyMoveSpeed(1.5f / item.value));    // desfaz
+                    onEnd: () => ModifyMoveSpeed(1.5f / item.value)); */   // desfaz
+                SpeedBoost();
                 break;
 
             case ItemEffectType.CaptureDevice:
@@ -119,6 +126,17 @@ public class PlayerEffectsManager : MonoBehaviour
             _bottle.Scape();
         }
 
+    }
+
+    private void Invisible()
+    {
+        _isInvisible = true;
+        Invoke("Visible", 5);
+    }
+
+    private void Visible()
+    {
+        _isInvisible = false;
     }
 
     void StartOrStackTimed(ItemSO item, System.Action onStart, System.Action onEnd)
@@ -207,6 +225,17 @@ public class PlayerEffectsManager : MonoBehaviour
         }
 
         Debug.LogWarning($"'{moveSpeedFieldName}' não encontrado como float em {t.Name}.");
+    }
+
+    private void SpeedBoost()
+    {
+        movementScript._speed *= 2;
+        Invoke("EndBoost", 3);
+    }
+
+    private void EndBoost()
+    {
+        movementScript._speed = _initialSpeed;
     }
 
     // Para UI ler barra/tempo

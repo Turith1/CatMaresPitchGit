@@ -9,6 +9,7 @@ public class ActionGhosts : MonoBehaviour
     public Rigidbody targetRb;
     public NavMeshAgent _agenteFantasma;
     public Transform player;
+    private PlayerEffectsManager _playerEffects;
 
     public GameObject powerUpPrefab;
     public GameObject zinimigo;
@@ -25,6 +26,7 @@ public class ActionGhosts : MonoBehaviour
         enemyRb = GetComponent<Rigidbody>();
         _agenteFantasma = GetComponent<NavMeshAgent>();
         GameObject targetRb = GameObject.FindGameObjectWithTag("Player");
+        _playerEffects = targetRb.GetComponent<PlayerEffectsManager>();
         if (targetRb != null)
             player = targetRb.transform;
     }
@@ -33,7 +35,7 @@ public class ActionGhosts : MonoBehaviour
     {
         if (player == null) return false;
         float dist = Vector3.Distance(transform.position, player.position);
-        return dist <= _distanceEnemy;
+        return dist <= _distanceEnemy && !_playerEffects._isInvisible;
     }
 
     public bool IsPlayerInAttackRange()

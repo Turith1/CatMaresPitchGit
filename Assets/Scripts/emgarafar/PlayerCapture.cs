@@ -16,6 +16,7 @@ public class PlayerCapture : MonoBehaviour
     [Header("Regras")]
     public bool requireFrozen = true;            
     public float cooldown = 0.5f;
+    [SerializeField]
     private float lastCaptureTime = -999f;
 
     [Header("Feedback")]
@@ -46,7 +47,9 @@ public class PlayerCapture : MonoBehaviour
 
     void TryCapture()
     {
-        Ray ray = new Ray(cam.transform.position, cam.transform.forward);
+        //Ray ray = new(cam.transform.position, cam.transform.forward);
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red, 5);
         if (Physics.Raycast(ray, out RaycastHit hit, range, targetMask, QueryTriggerInteraction.Collide))
         {
             var capturable = hit.collider.GetComponentInParent<CapturableGhost>();

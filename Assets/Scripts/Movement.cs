@@ -16,7 +16,7 @@ using UnityEngine.UIElements;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _playerRB;
-    [SerializeField] private float _speed, _sensitivity, _maxForce;
+    public float _speed, _sensitivity, _maxForce;
     [SerializeField] private Vector2 _move, _look;
     [SerializeField] private float _lookRotation, _looksides;
     [SerializeField] private GameObject _cameraFocus;
