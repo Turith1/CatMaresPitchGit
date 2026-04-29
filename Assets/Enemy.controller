@@ -41,6 +41,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _distance: 8
   _ronda: {fileID: 6055423666940302404, guid: 523ac0d4dd3bd4649bff7f693f5ead7a, type: 3}
+  _agentSpeed: 4.5
 --- !u!1102 &-5700917078987103509
 AnimatorState:
   serializedVersion: 6
@@ -81,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   enemyController: {fileID: 0}
+  _agentSpeed: 3.5
 --- !u!1101 &-2034586333439389222
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

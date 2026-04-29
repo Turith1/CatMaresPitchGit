@@ -8,6 +8,8 @@ public class ChasePlayer : StateMachineBehaviour
     private EnemyNavMesh enemy;
     [SerializeField]
     private ActionGhosts enemyController;
+    [SerializeField]
+    private float _agentSpeed = 3.5f;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -22,6 +24,7 @@ public class ChasePlayer : StateMachineBehaviour
 
         if (!enemyController.IsPlayerInRange())
         {
+            enemyController._ronda.m_agent.speed = _agentSpeed;
             animator.SetBool("Chase", false);
             return;
         }
