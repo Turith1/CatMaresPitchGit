@@ -10,12 +10,12 @@ public class ProcagemPowerUps : MonoBehaviour
     [SerializeField] private List<Transform> _usePositions;
     private void Start()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i <= 4; i++)
         {
-            int randomPosition = Random.Range(0, 6);
+            int randomPosition = Random.Range(0, _powerUpsTransform.Length);
             while (_usePositions.Contains(_powerUpsTransform[randomPosition]))
             {
-                randomPosition = Random.Range(0, 6);
+                randomPosition = Random.Range(0, _powerUpsTransform.Length);
             }
             GameObject powerUps = Instantiate(_powerUps[i], _powerUpsTransform[randomPosition].position, Quaternion.identity);
  

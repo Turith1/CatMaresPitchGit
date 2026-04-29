@@ -312,6 +312,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArmaSonho
       objectReference: {fileID: 0}
+    - target: {fileID: 2948782244745304485, guid: 6823caed467b99246bf2fec690a6b4fd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.57
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
