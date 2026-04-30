@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using System.Collections;
 
 [RequireComponent(typeof(Collider))]
 public class GunPickup : MonoBehaviour
@@ -8,6 +10,7 @@ public class GunPickup : MonoBehaviour
     public GameObject pickupVfx;
     public bool autoRotate = true;
     public float rotateSpeed = 60f;
+    public ProcagemPowerUps _proc;
 
     void Reset() { GetComponent<Collider>().isTrigger = true; }
 
@@ -24,6 +27,15 @@ public class GunPickup : MonoBehaviour
         if (pickupSfx) AudioSource.PlayClipAtPoint(pickupSfx, transform.position);
         if (pickupVfx) Instantiate(pickupVfx, transform.position, Quaternion.identity);
 
-        Destroy(gameObject);
+        //StartCoroutine(_proc.RespawnItem(transform, this.gameObject));
+        _proc.RespawnItem(transform, this.gameObject);
+        //StartCoroutine(CallRespawn());
+    }
+
+    private IEnumerator CallRespawn()
+    {
+        this.gameObject.SetActive(false);
+        yield return new WaitForSeconds(2);
+        _proc.RespawnItem(transform, this.gameObject);
     }
 }

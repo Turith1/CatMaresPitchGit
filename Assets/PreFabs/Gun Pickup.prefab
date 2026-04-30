@@ -97,10 +97,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.2557459
-  m_Height: 2.5114918
+  m_Radius: 0.7
+  m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0, y: 0.4500475, z: 0.20210934}
+  m_Center: {x: 0, y: 1.5, z: 0.20210934}
 --- !u!114 &8824919797687525071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +116,9 @@ MonoBehaviour:
   duration: 15
   pickupSfx: {fileID: 0}
   pickupVfx: {fileID: 0}
+  autoRotate: 1
+  rotateSpeed: 60
+  _proc: {fileID: 0}
 --- !u!1 &3569429873270297548
 GameObject:
   m_ObjectHideFlags: 0

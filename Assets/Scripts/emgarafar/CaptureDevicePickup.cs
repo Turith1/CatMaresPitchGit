@@ -20,6 +20,6 @@ public class CaptureDevicePickup : MonoBehaviour
         if (pickupSfx) AudioSource.PlayClipAtPoint(pickupSfx, transform.position);
         if (pickupVfx) Instantiate(pickupVfx, transform.position, Quaternion.identity);
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

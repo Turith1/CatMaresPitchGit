@@ -172,8 +172,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2.5, z: 1}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!114 &8962161951589593620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +189,8 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 6e1c0f3343d9e3745ab061b54bb14011, type: 2}
   autoRotate: 1
   rotateSpeed: 60
-  destroyOnPickup: 1
+  destroyOnPickup: 0
+  _proc: {fileID: 0}
 --- !u!1 &8953570829485228019
 GameObject:
   m_ObjectHideFlags: 0

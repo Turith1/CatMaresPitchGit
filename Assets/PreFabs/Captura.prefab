@@ -257,8 +257,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5023256681259630015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +274,8 @@ MonoBehaviour:
   item: {fileID: 11400000, guid: 7f728366d9bd18b42810f4057f3b9288, type: 2}
   autoRotate: 1
   rotateSpeed: 60
-  destroyOnPickup: 1
+  destroyOnPickup: 0
+  _proc: {fileID: 0}
 --- !u!114 &2013223659796170312
 MonoBehaviour:
   m_ObjectHideFlags: 0

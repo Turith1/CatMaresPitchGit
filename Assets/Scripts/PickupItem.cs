@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -7,6 +8,7 @@ public class PickupItem : MonoBehaviour
     public bool autoRotate = true;
     public float rotateSpeed = 60f;
     public bool destroyOnPickup = true;
+    public ProcagemPowerUps _proc;
 
 
     void Reset() { GetComponent<Collider>().isTrigger = true; }
@@ -22,6 +24,15 @@ public class PickupItem : MonoBehaviour
         if (item.pickupSfx) AudioSource.PlayClipAtPoint(item.pickupSfx, transform.position);
         if (item.pickupVfxPrefab) Instantiate(item.pickupVfxPrefab, transform.position, Quaternion.identity);
 
-        if (destroyOnPickup) Destroy(gameObject);
+        //StartCoroutine(_proc.RespawnItem(transform, this.gameObject));
+        _proc.RespawnItem(transform, this.gameObject);
+        //StartCoroutine(CallRespawn());
+    }
+
+    private IEnumerator CallRespawn()
+    {
+        this.gameObject.SetActive(false);
+        yield return new WaitForSeconds(2);
+        _proc.RespawnItem(transform, this.gameObject);
     }
 }
