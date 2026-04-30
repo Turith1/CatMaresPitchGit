@@ -191,6 +191,7 @@ MonoBehaviour:
   rotateSpeed: 60
   destroyOnPickup: 0
   _proc: {fileID: 0}
+  _turnOffItem: {fileID: 4686223522055458595}
 --- !u!1 &7493718064307050354
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +417,12 @@ PrefabInstance:
 --- !u!4 &1190905807016499822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5694192315039932507, guid: eb40dc906afa2c544b3c618d3d64a869,
+    type: 3}
+  m_PrefabInstance: {fileID: 6882387778510649909}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4686223522055458595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2201108267469370646, guid: eb40dc906afa2c544b3c618d3d64a869,
     type: 3}
   m_PrefabInstance: {fileID: 6882387778510649909}
   m_PrefabAsset: {fileID: 0}

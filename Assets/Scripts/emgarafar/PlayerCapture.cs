@@ -53,6 +53,7 @@ public class PlayerCapture : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, range, targetMask, QueryTriggerInteraction.Collide))
         {
             var capturable = hit.collider.GetComponentInParent<CapturableGhost>();
+            Debug.Log(hit.collider.GetComponentInParent<Transform>().name);
             if (!capturable) return;
 
             

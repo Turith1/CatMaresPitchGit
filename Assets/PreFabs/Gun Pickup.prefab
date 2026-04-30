@@ -119,6 +119,7 @@ MonoBehaviour:
   autoRotate: 1
   rotateSpeed: 60
   _proc: {fileID: 0}
+  _turnOffItem: {fileID: 6237184472955964174}
 --- !u!1 &3569429873270297548
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +443,12 @@ PrefabInstance:
       addedObject: {fileID: 8855019505784366777}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45a31edf610a1846811f44421684875, type: 3}
+--- !u!1 &6237184472955964174 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f45a31edf610a1846811f44421684875,
+    type: 3}
+  m_PrefabInstance: {fileID: 6507569427965441631}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6756875638355726772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f45a31edf610a1846811f44421684875,

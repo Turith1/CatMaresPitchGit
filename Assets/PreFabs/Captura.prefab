@@ -276,6 +276,7 @@ MonoBehaviour:
   rotateSpeed: 60
   destroyOnPickup: 0
   _proc: {fileID: 0}
+  _turnOffItem: {fileID: 6489562679432254428}
 --- !u!114 &2013223659796170312
 MonoBehaviour:
   m_ObjectHideFlags: 0

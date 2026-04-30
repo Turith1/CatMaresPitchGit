@@ -11,6 +11,8 @@ public class GunPickup : MonoBehaviour
     public bool autoRotate = true;
     public float rotateSpeed = 60f;
     public ProcagemPowerUps _proc;
+    [SerializeField]
+    private GameObject _turnOffItem;
 
     void Reset() { GetComponent<Collider>().isTrigger = true; }
 
@@ -27,15 +29,6 @@ public class GunPickup : MonoBehaviour
         if (pickupSfx) AudioSource.PlayClipAtPoint(pickupSfx, transform.position);
         if (pickupVfx) Instantiate(pickupVfx, transform.position, Quaternion.identity);
 
-        //StartCoroutine(_proc.RespawnItem(transform, this.gameObject));
-        _proc.RespawnItem(transform, this.gameObject);
-        //StartCoroutine(CallRespawn());
-    }
-
-    private IEnumerator CallRespawn()
-    {
-        this.gameObject.SetActive(false);
-        yield return new WaitForSeconds(2);
-        _proc.RespawnItem(transform, this.gameObject);
+        _proc.RespawnItem(transform, _turnOffItem);
     }
 }
