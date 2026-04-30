@@ -10,22 +10,18 @@ public class ProcagemPowerUps : MonoBehaviour
     [SerializeField] private List<Transform> _usePositions;
     private void Start()
     {
-        for (int i = 0; i <= 4; i++)
+        for (int i = 0; i <= _powerUps.Length; i++)
         {
             int randomPosition = Random.Range(0, _powerUpsTransform.Length);
-            while (_usePositions.Contains(_powerUpsTransform[randomPosition]))
+            /*while (_usePositions.Contains(_powerUpsTransform[randomPosition]))
             {
                 randomPosition = Random.Range(0, _powerUpsTransform.Length);
+            }*/
+            if (!_usePositions.Contains(_powerUpsTransform[randomPosition]))
+            {
+                Instantiate(_powerUps[i], _powerUpsTransform[randomPosition].position, Quaternion.identity);
             }
-            GameObject powerUps = Instantiate(_powerUps[i], _powerUpsTransform[randomPosition].position, Quaternion.identity);
- 
+            _usePositions.Add(_powerUpsTransform[randomPosition]);
         }
     }
-
-    private GameObject Instantiate(GameObject gameObject, Transform[] randomPosition, Quaternion identity)
-    {
-        throw new System.NotImplementedException();
-    }
-
-
 }
