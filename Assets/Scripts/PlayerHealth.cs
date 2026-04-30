@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -24,7 +25,11 @@ public class PlayerHealth : MonoBehaviour
     public UnityEvent onDeath;
     public UnityEvent<int, int> onHealthChanged; // (current, max)
 
+    [SerializeField]
     Renderer[] renderers; // pra piscar
+
+    [SerializeField]
+    private List<Renderer> filteredRenderers = new List<Renderer>();
 
     void Awake()
     {
@@ -32,6 +37,14 @@ public class PlayerHealth : MonoBehaviour
         renderers = GetComponentsInChildren<Renderer>(true);
         if (rb == null) rb = GetComponent<Rigidbody>();
         onHealthChanged?.Invoke(currentHearts, maxHearts);
+
+        foreach(Renderer r in renderers)
+        {
+            if(!(r is SpriteRenderer))
+            {
+                filteredRenderers.Add(r);
+            }
+        }
     }
 
     public void Heal(int amount = 1)
@@ -86,7 +99,7 @@ public class PlayerHealth : MonoBehaviour
         while (elapsed < invulnDuration)
         {
             visible = !visible;
-            foreach (var r in renderers)
+            foreach (var r in filteredRenderers)
             {
                 foreach (var m in r.materials)
                     m.SetFloat("_Surface", m.GetFloat("_Surface")); // no-op p/ URP; abaixo usa enabled
@@ -98,7 +111,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         // garante visível
-        foreach (var r in renderers) r.enabled = true;
+        foreach (var r in filteredRenderers) r.enabled = true;
         isInvulnerable = false;
     }
 }

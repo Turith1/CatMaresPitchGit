@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  cooldown: 10
+  cooldown: 2
   lastHitTime: -999
   _anim: {fileID: 0}
   _ghost: {fileID: 0}
