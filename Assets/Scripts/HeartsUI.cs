@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HeartsUI : MonoBehaviour
 {
-    public Image[] heartImages;     
+    public SpriteRenderer[] heartImages;     
     public Sprite fullHeart;
     public Sprite emptyHeart;
 

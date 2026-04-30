@@ -9,6 +9,8 @@ public class PlayerEffectsManager : MonoBehaviour
     public BottleEffect _bottle;
     public Movement  movementScript;     
     public string moveSpeedFieldName = "moveSpeed"; // nome do campo float no  controller
+    [SerializeField]
+    private Material _catMat, _catMatInvisible;
 
     [Header("Invisibilidade")]
     public bool useLayerSwapForInvisibility = true;
@@ -20,7 +22,7 @@ public class PlayerEffectsManager : MonoBehaviour
     private float _initialSpeed = 6.58f;
 
     int originalLayer;
-    Renderer[] renderers;
+    Renderer renderers;
     public bool debugAutoApplyAtStart = false;
     public ItemSO debugItemAtStart;
 
@@ -50,9 +52,9 @@ public class PlayerEffectsManager : MonoBehaviour
     void Awake()
     {
         if (health == null) health = GetComponent<PlayerHealth>();
-        renderers = GetComponentsInChildren<Renderer>(true);
+        GameObject catMat = transform.GetChild(0).GetChild(1).gameObject;
+        renderers = catMat.GetComponent<Renderer>();
         originalLayer = gameObject.layer;
-        
     }
 
     void Update()
@@ -131,12 +133,14 @@ public class PlayerEffectsManager : MonoBehaviour
     private void Invisible()
     {
         _isInvisible = true;
+        renderers.material = _catMatInvisible;
         Invoke("Visible", 5);
     }
 
     private void Visible()
     {
         _isInvisible = false;
+        renderers.material = _catMat;
     }
 
     void StartOrStackTimed(ItemSO item, System.Action onStart, System.Action onEnd)
@@ -180,7 +184,7 @@ public class PlayerEffectsManager : MonoBehaviour
     }
 
     // -------- Utilitários --------
-    void SetInvisible(bool v)
+    /*void SetInvisible(bool v)
     {
         if (useLayerSwapForInvisibility)
         {
@@ -199,7 +203,7 @@ public class PlayerEffectsManager : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
     void ModifyMoveSpeed(float multiplier)
     {

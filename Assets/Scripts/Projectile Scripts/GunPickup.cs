@@ -6,8 +6,12 @@ public class GunPickup : MonoBehaviour
     public float duration = 15f; 
     public AudioClip pickupSfx;
     public GameObject pickupVfx;
+    public bool autoRotate = true;
+    public float rotateSpeed = 60f;
 
     void Reset() { GetComponent<Collider>().isTrigger = true; }
+
+    void Update() { if (autoRotate) transform.Rotate(0f, rotateSpeed * Time.deltaTime, 0f); }
 
     void OnTriggerEnter(Collider other)
     {
