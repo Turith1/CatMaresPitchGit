@@ -23,16 +23,19 @@ public class MainMenuManager : MonoBehaviour
     public void IniciaGame()
     {
         // Usa o SceneManager para carregar a cena do jogo.
+        DOTween.KillAll();
         SceneManager.LoadScene("SceneMainGame");
     }
 
     public void FazerTutorial()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene("Tutorial");
     }
 
     public void MainMenu()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene("Menu");
     }
    
@@ -40,8 +43,8 @@ public class MainMenuManager : MonoBehaviour
     public void SairGame()
     {
         // Encerra a aplicação.
-        
-       
+
+        DOTween.KillAll();
         Application.Quit();
 
         
