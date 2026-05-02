@@ -47,4 +47,9 @@ public class MainMenuManager : MonoBehaviour
         
         Debug.Log("Saindo do jogo...");
     }
+
+    private void OnDestroy()
+    {
+        DOTween.KillAll();
+    }
 }
