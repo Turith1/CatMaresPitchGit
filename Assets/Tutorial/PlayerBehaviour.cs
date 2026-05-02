@@ -23,9 +23,6 @@ public class PlayerBehaviour : MonoBehaviour
     bool isFlashing = false;
     [SerializeField] public GameObject invincParticles;
     private GameObject  activeParticles;
-    [SerializeField] GameObject caixadeDialogo;
-    [SerializeField] Transform playerTransform;
-    private int shotDirection;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +34,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Tiro(shotDirection);
+        Tiro();
         WASDmove();
         SuperSpeed();
         Invencibility();
@@ -53,29 +50,6 @@ public class PlayerBehaviour : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         rig.velocity = new Vector2(horizontal, vertical).normalized * moveSpeed;
-
-        if (caixadeDialogo.activeInHierarchy)
-        {
-            rig.constraints = RigidbodyConstraints2D.FreezeAll;
-        }
-        else
-        {
-            rig.constraints = RigidbodyConstraints2D.FreezeRotation;
-        }
-        if (horizontal != 0)
-        {
-            
-            if( horizontal > 0)
-            {
-                shotDirection = 1;
-                playerspriteRenderer.flipX = true;
-            }
-            if (horizontal < 0)
-            {
-                shotDirection = -1;
-                playerspriteRenderer.flipX = false;
-            }
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -102,15 +76,13 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
     }
-    void Tiro(int shotDirection)
+    void Tiro()
     {
-        if (canShoot == true && Input.GetMouseButtonDown(0))
+        if (canShoot == true && Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject shot =  Instantiate(tiro, playerTransform.position + new Vector3(0, -0.5f, 0),Quaternion.identity);
-            shot.GetComponent<PlayerShot>().bulletDirection = shotDirection;
+            Instantiate(tiro, transform.position, Quaternion.identity);
         }
     }
-     
     void SuperSpeed()
     {
         if (isBoosting == true)

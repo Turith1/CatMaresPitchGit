@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6141316775905083070}
   m_Layer: 0
   m_Name: Sofa (1)
-  m_TagString: Movel
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
