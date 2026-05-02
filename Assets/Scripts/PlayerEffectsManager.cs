@@ -116,6 +116,13 @@ public class PlayerEffectsManager : MonoBehaviour
     {
         int amount = Mathf.RoundToInt(item.value);
         if (health != null) health.Heal(amount);
+        OnEffectToggled?.Invoke(ItemEffectType.Heal, true);
+        Invoke("EndHealVisual", 3);
+    }
+
+    private void EndHealVisual()
+    {
+        OnEffectToggled?.Invoke(ItemEffectType.Heal, false);
     }
 
     void EffectBottle()
@@ -134,11 +141,13 @@ public class PlayerEffectsManager : MonoBehaviour
     {
         _isInvisible = true;
         renderers.material = _catMatInvisible;
+        OnEffectToggled?.Invoke(ItemEffectType.Invisibility, true);
         Invoke("Visible", 5);
     }
 
     private void Visible()
     {
+        OnEffectToggled?.Invoke(ItemEffectType.Invisibility, false);
         _isInvisible = false;
         renderers.material = _catMat;
     }
@@ -233,12 +242,14 @@ public class PlayerEffectsManager : MonoBehaviour
 
     private void SpeedBoost()
     {
+        OnEffectToggled?.Invoke(ItemEffectType.SpeedBoost, true);
         movementScript._speed *= 2;
         Invoke("EndBoost", 3);
     }
 
     private void EndBoost()
     {
+        OnEffectToggled?.Invoke(ItemEffectType.SpeedBoost, false);
         movementScript._speed = _initialSpeed;
     }
 

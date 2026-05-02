@@ -11,6 +11,11 @@ public class MainMenuManager : MonoBehaviour
     
     public string gameSceneName = "GameScene";
 
+    private void OnEnable()
+    {
+        DOTween.KillAll();
+    }
+
     private void Awake()
     {
 

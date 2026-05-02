@@ -8,6 +8,11 @@ public class AnimDoteen : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     private Vector3 _initialScale;
 
+    private void OnEnable()
+    {
+        DOTween.KillAll();
+    }
+
     private void Awake()
     {
         _initialScale = transform.localScale;
@@ -23,5 +28,10 @@ public class AnimDoteen : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerExit(PointerEventData eventData)
     {
         transform.DOScale(_initialScale, 1f).SetEase(Ease.OutElastic);
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.KillAll();
     }
 }

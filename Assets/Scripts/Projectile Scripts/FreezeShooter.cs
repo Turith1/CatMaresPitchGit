@@ -6,7 +6,9 @@ public class FreezeShooter : MonoBehaviour
     public bool canShoot = false;                
     [Header("Setup")]
     public Transform firePoint;                   
-    public GameObject projectilePrefab;           
+    public GameObject projectilePrefab;
+    [SerializeField]
+    private VisualFeedBack _feedBack;
 
     [Header("Tiro")]
     public float cooldown = 0.2f;
@@ -31,6 +33,7 @@ public class FreezeShooter : MonoBehaviour
     {
         StopAllCoroutines();
         canShoot = true;
+        _feedBack.StupidGun(true);
         if (seconds > 0) StartCoroutine(RevokeAfter(seconds));
     }
 
@@ -38,6 +41,7 @@ public class FreezeShooter : MonoBehaviour
     {
         yield return new WaitForSeconds(s);
         canShoot = false;
+        _feedBack.StupidGun(false);
     }
 
     void Update()
