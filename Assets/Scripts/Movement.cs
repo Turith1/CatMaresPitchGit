@@ -11,6 +11,7 @@ using UnityEngine.InputSystem.Composites;
 using UnityEngine.Rendering;
 using UnityEngine.SocialPlatforms;
 using UnityEngine.UIElements;
+using DG.Tweening;
 
 
 public class Movement : MonoBehaviour
@@ -20,13 +21,19 @@ public class Movement : MonoBehaviour
     [SerializeField] private Vector2 _move, _look;
     [SerializeField] private float _lookRotation, _looksides;
     [SerializeField] private GameObject _cameraFocus;
+    [SerializeField] private Transform _floatinCat;
     [SerializeField] private Animator _caminhada;
+    [SerializeField]
+    private float floatDistance = 0.5f;
+    [SerializeField]
+    private float duration = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
+        _floatinCat.DOLocalMoveY(_floatinCat.localPosition.y + floatDistance, duration).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void FixedUpdate()
