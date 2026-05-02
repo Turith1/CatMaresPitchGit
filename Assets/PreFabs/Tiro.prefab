@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: d6512a8b99469534697f963ebce8d81c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cff26bf0e671ff446a47d2fe7b784c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDirection: 0
   shotSpeed: 10
 --- !u!58 &-4307937446512702772
 CircleCollider2D:

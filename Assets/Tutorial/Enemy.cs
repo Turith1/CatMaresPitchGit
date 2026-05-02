@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.Rendering;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Enemy : MonoBehaviour
 {
@@ -13,29 +17,28 @@ public class Enemy : MonoBehaviour
     [SerializeField] int vida = 3;
     SpriteRenderer spriteRenderer;
     bool isRunningAway = false;
+    [SerializeField] GameObject caixadeDialogo;
+    [SerializeField] Transform enemyTransform;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Gato").transform;
+        if (playerTransform != null)
+        {
+         playerTransform = GameObject.FindGameObjectWithTag("Gato").transform;
+        }
+
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        LookDirection();
         PeriodoIncapacitado();
-        if (playerTransform != null && isRunningAway == false)
-        {
-            Vector2 direction = playerTransform.position - transform.position;
-            enemyrig.velocity = direction.normalized * speed;
-
-        }
-        if(isRunningAway == true)
-        {
-            Vector2 dir = (transform.position - playerTransform.position).normalized;
-            transform.position += (Vector3)dir * speed * Time.deltaTime;
-        }
+        MovimentoParaoPlayer();
+        Fugir();
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -43,6 +46,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Tiro"))
         {
             vida = vida - 1;
+           
         }
         if (vida <= 0)
         {
@@ -72,10 +76,21 @@ public class Enemy : MonoBehaviour
             {
                 vida = 3;
                 GetComponent<Collider2D>().enabled = true;
-                enemyrig.constraints = RigidbodyConstraints2D.None;
+                enemyrig.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
+
+            
         }
-        
+
+        if (caixadeDialogo.activeInHierarchy)
+        {
+            speed = 0;
+        }
+        else
+        {
+            speed = 2;
+        }
+
     }
     public void ColorChange()
     {
@@ -90,7 +105,47 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Gato") && isRunningAway == true) 
         {
-            Destroy(this.gameObject);
+            SceneManager.LoadScene("Menu");
         }
     }
+
+    public void LookDirection()
+    {
+        if (playerTransform != null) 
+        {
+            float dir = playerTransform.position.x - transform.position.x;
+
+            if (playerTransform != null && isRunningAway == true)
+            {
+                spriteRenderer.flipX = dir < 0;
+            }
+            else if (playerTransform != null)
+            {
+                spriteRenderer.flipX = dir > 0;
+            }
+        }
+        
+    }
+    public void MovimentoParaoPlayer()
+    {
+        if (playerTransform != null && isRunningAway == false)
+        {
+            Vector2 direction = playerTransform.position - transform.position;
+            enemyrig.velocity = direction.normalized * speed;
+
+        }
+        
+
+    }
+    public void Fugir()
+    {
+        if (isRunningAway == true)
+        {
+            Vector2 dir = (transform.position - playerTransform.position).normalized;
+            enemyrig.velocity = -dir * -speed;
+
+            speed = 10;
+        }
+    }
+
 }
