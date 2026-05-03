@@ -26,13 +26,14 @@ public class CapturableGhost : MonoBehaviour
         if (bottledGhostPrefab)
             Instantiate(bottledGhostPrefab, transform.position, Quaternion.identity);
 
-        Destroy(gameObject); // elimina o fantasma da cena
+        SceneManager.LoadScene("vICTORY");
+        //Destroy(gameObject); // elimina o fantasma da cena
 
-        Invoke("CallVictory", 3f);
+        //Invoke("CallVictory", 3f);
     }
 
-    private void CallVictory()
+    /*private void CallVictory()
     {
         SceneManager.LoadScene("vICTORY");
-    }
+    }*/
 }

@@ -86,7 +86,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void OnDeath()
     {
-        SceneManager.LoadScene("vICTORY");
+        SceneManager.LoadScene("LooseScene");
     }
 
     System.Collections.IEnumerator InvulnerabilityRoutine()
