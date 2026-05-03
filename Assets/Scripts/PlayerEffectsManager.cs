@@ -159,7 +159,6 @@ public class PlayerEffectsManager : MonoBehaviour
             active = new Active { item = item, endTime = Time.time + item.duration, stacks = 1 };
             actives[item.type] = active;
             onStart?.Invoke();
-            Debug.Log($"[PEM] START {item.type} (stacks=1)");
             endCallbacks[item.type] = onEnd;
             OnEffectToggled?.Invoke(item.type, true);
         }
@@ -168,7 +167,6 @@ public class PlayerEffectsManager : MonoBehaviour
             if (item.canStack && active.stacks < item.maxStacks)
             {
                 active.stacks++;
-                Debug.Log($"[PEM] STACK {item.type} -> {active.stacks}");
                 if (item.type == ItemEffectType.SpeedBoost) ModifyMoveSpeed(item.value); // empilha multiplicador
             }
             if (item.refreshDurationOnGain)

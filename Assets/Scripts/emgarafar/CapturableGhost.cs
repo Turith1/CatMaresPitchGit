@@ -28,6 +28,11 @@ public class CapturableGhost : MonoBehaviour
 
         Destroy(gameObject); // elimina o fantasma da cena
 
+        Invoke("CallVictory", 3f);
+    }
+
+    private void CallVictory()
+    {
         SceneManager.LoadScene("vICTORY");
     }
 }

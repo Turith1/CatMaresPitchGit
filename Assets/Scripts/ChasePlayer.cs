@@ -29,7 +29,6 @@ public class ChasePlayer : StateMachineBehaviour
 
         if (!_playerCapture.canCapture)
         {
-            Debug.Log(!_playerCapture.canCapture);
             enemy.m_agent.SetDestination(enemyController.player.position);
         }
         else if (_playerCapture.canCapture && !enemy.m_agent.pathPending)
