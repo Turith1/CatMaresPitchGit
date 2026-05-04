@@ -104,7 +104,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Tiro(int shotDirection)
     {
-        if (canShoot == true && Input.GetMouseButtonDown(0))
+        if (canShoot == true && Input.GetMouseButtonDown(1))
         {
             GameObject shot =  Instantiate(tiro, playerTransform.position + new Vector3(0, -0.5f, 0),Quaternion.identity);
             shot.GetComponent<PlayerShot>().bulletDirection = shotDirection;

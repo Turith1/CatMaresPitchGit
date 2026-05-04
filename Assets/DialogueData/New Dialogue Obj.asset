@@ -22,13 +22,14 @@ MonoBehaviour:
   - "Como mostra a tela, o ambiente do jogo possui diversos itens, cada um com uma
     fun\xE7\xE3o."
   - "O seu objetivo principal \xE9 encontrar o Balde de captura, o \xFAnico item
-    do jogo que pode se livrar permanentemente dos fantasmas."
+    do jogo que pode se livrar permanentemente dos fantasmas. (obs. No plano astral,
+    trata-se de uma garrafa m\xE1gica inominada)"
   - "Ao coletar este item, o fantasma foge e voc\xEA pode capitura-lo ao toque."
   - "Este item s\xF3 dura por alguns segundos, mas como voc\xEA \xE9 noob, aqui ele
     dura para sempre (hihihi)"
   - Outros itens podem te ajudar na sua jornada mas, no mundo dos sonhos os inimigos
     e eles possuem uma aparencia diferente.
-  - "Quase esqueci, ao pegar o item \"Bolinha de Amarrar\" aperte o \"bot\xE3o esquerdo
+  - "Quase esqueci, ao pegar o item \"Bolinha de Amarrar\" aperte o \"bot\xE3o direito
     do mouse\" que eu atiro."
   - Atire 3 vezes no "Aspirador Sacana" e ele fica temporariamente paralizado..
   - (Eu queria que fosse "ESC" mas o jogo ficava fechando por algum motivo ;________;)
