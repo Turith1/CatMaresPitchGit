@@ -31,6 +31,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]
     private List<Renderer> filteredRenderers = new List<Renderer>();
 
+    [SerializeField]
+    private Renderer _blinkRenderer;
+
     void Awake()
     {
         currentHearts = maxHearts;
@@ -99,19 +102,15 @@ public class PlayerHealth : MonoBehaviour
         while (elapsed < invulnDuration)
         {
             visible = !visible;
-            foreach (var r in filteredRenderers)
-            {
-                foreach (var m in r.materials)
-                    m.SetFloat("_Surface", m.GetFloat("_Surface")); // no-op p/ URP; abaixo usa enabled
-                r.enabled = visible; // forma simples de piscar
-            }
+            _blinkRenderer.enabled = visible;
 
             yield return new WaitForSeconds(blinkInterval);
             elapsed += blinkInterval;
         }
 
         // garante visível
-        foreach (var r in filteredRenderers) r.enabled = true;
+        //foreach (var r in filteredRenderers) r.enabled = true;
+        _blinkRenderer.enabled = true;
         isInvulnerable = false;
     }
 }
