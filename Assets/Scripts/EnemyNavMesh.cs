@@ -10,6 +10,7 @@ public class EnemyNavMesh : MonoBehaviour
     public Transform[] _rotaEnemy;
     //[SerializeField] private bool _estaEmRonda = true;
     [SerializeField] public int _rotaAtual = 0;
+    public MenuManager _menuManager;
 
     public void Start()    
     {

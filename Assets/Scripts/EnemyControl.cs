@@ -25,6 +25,14 @@ public class EnemyControl : StateMachineBehaviour
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (_pattrol._menuManager._isPaused && !_pattrol.m_agent.isStopped)
+        {
+            _pattrol.m_agent.isStopped = true;
+            return;
+        }
+        if (!_pattrol._menuManager._isPaused && _pattrol.m_agent.isStopped)
+            _pattrol.m_agent.isStopped = false;
+
         if (enemyController.IsPlayerInRange())
         {
             _pattrol.m_agent.speed = _agentSpeed;

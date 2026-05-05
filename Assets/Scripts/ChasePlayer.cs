@@ -15,6 +15,7 @@ public class ChasePlayer : StateMachineBehaviour
     private PlayerCapture _playerCapture;
     Transform bestSpot = null;
     float maxDistance = -1;
+    public MenuManager _menuManager;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -31,6 +32,13 @@ public class ChasePlayer : StateMachineBehaviour
     {
         if (enemyController.player == null) return;
 
+        if (enemy._menuManager._isPaused && !enemy.m_agent.isStopped)
+        {
+            enemy.m_agent.isStopped = true;
+            return;
+        }
+        if (!enemy._menuManager._isPaused && enemy.m_agent.isStopped)
+            enemy.m_agent.isStopped = false;
 
         if (!_playerCapture.canCapture)
         {

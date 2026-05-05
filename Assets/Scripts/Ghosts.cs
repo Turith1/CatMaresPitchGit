@@ -21,6 +21,8 @@ public class Ghosts : MonoBehaviour
     float timer;
     [SerializeField] private Animator _anim;
     [SerializeField] private Rigidbody _targetRb;
+    [SerializeField]
+    private MenuManager _menuManager;
 
     
 
@@ -52,6 +54,8 @@ public class Ghosts : MonoBehaviour
             Vector3 randomPosition = _spawnPoints[pos].position;
             GameObject fantasmas = Instantiate(_ghostPref[0], randomPosition, Quaternion.identity);
             fantasmas.GetComponent<EnemyNavMesh>()._rotaEnemy = _wayPoints;
+            fantasmas.GetComponent<EnemyNavMesh>()._menuManager = _menuManager;
+            fantasmas.GetComponent<DamageOnTouch>()._menuManager = _menuManager;
             BottleEffect bottleEffect = fantasmas.GetComponent<BottleEffect>();
             bottleEffect._player = player;
         }

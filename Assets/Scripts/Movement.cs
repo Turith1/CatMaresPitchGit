@@ -18,6 +18,8 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private Rigidbody _playerRB;
     public float _speed, _sensitivity, _maxForce;
+    [SerializeField]
+    private bool _esc;
     [SerializeField] private Vector2 _move, _look;
     [SerializeField] private float _lookRotation, _looksides;
     [SerializeField] private GameObject _cameraFocus;
@@ -27,6 +29,10 @@ public class Movement : MonoBehaviour
     private float floatDistance = 0.5f;
     [SerializeField]
     private float duration = 2f;
+    [SerializeField]
+    private MenuManager _menuManager;
+    [SerializeField]
+    private GameObject _menuCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +44,9 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_menuManager._isPaused)
+            return;
+
         Vector3 currentVelocity = _playerRB.velocity;
         Vector3 targetVelocity = new Vector3(_move.x, 0, _move.y);
         targetVelocity *= _speed;
@@ -63,6 +72,8 @@ public class Movement : MonoBehaviour
     void LateUpdate()
     {
         //transform.Rotate(_look.x * _sensitivity * Vector3.up);
+        if (_menuManager._isPaused)
+            return;
 
         _lookRotation += (-_look.y * _sensitivity);
         _lookRotation = Mathf.Clamp(_lookRotation, -80, 80);
@@ -86,5 +97,22 @@ public class Movement : MonoBehaviour
     {
         _look = context.ReadValue<Vector2>();
     }
-}
 
+    public void OnEsc(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            UnityEngine.Cursor.lockState = CursorLockMode.Confined;
+            UnityEngine.Cursor.visible = true;
+            _menuCanvas.SetActive(true);
+            _menuManager._isPaused = !_menuManager._isPaused;
+            if (!_menuManager._isPaused)
+                _menuCanvas.SetActive(false);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        DOTween.KillAll(false);
+    }
+}

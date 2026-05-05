@@ -12,6 +12,7 @@ public class DamageOnTouch : MonoBehaviour
     private Animator _anim;
     [SerializeField]
     private ActionGhosts _ghost;
+    public MenuManager _menuManager;
 
     private void Start()
     {
@@ -35,11 +36,16 @@ public class DamageOnTouch : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (_menuManager._isPaused)
+            return;
         TryDamage(other);
     }
 
     void TryDamage(Collider other)
     {
+        if (_menuManager._isPaused)
+            return;
+
         if (lastHitTime >= 0) return;
 
         _anim.SetTrigger("Hit 0");

@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "PlayerInut",
     "maps": [
         {
@@ -27,7 +28,16 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "101b0959-42db-450c-9786-3059a01399b5",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Esc",
+                    "type": "Button",
+                    "id": "9251d5dc-a8f0-4c19-8968-2277651e1552",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -251,6 +261,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd59ebf6-9db9-4904-935f-cb3a31920c5a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Esc",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
