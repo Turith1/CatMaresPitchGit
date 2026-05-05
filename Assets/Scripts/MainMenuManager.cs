@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class MainMenuManager : MonoBehaviour
-
 {
-    
+    [Header("Pixel Animations")]
+    [SerializeField]
+    private Animator _quitAnim;
+    [SerializeField]
+    private GameObject _tutorialAnim;
+    [SerializeField]
+    private GameObject _mainGameAnim;
     
     public string gameSceneName = "GameScene";
 
@@ -28,12 +33,16 @@ public class MainMenuManager : MonoBehaviour
     public void IniciaGame()
     {
         // Usa o SceneManager para carregar a cena do jogo.
-        SceneManager.LoadScene("SceneMainGame");
+        //SceneManager.LoadScene("SceneMainGame");
+        _mainGameAnim.SetActive(true);
+        StartCoroutine(SceneChangeDelay("SceneMainGame", 1.6f));
     }
 
     public void FazerTutorial()
     {
-        SceneManager.LoadScene("Tutorial");
+        //SceneManager.LoadScene("Tutorial");
+        _tutorialAnim.SetActive(true);
+        StartCoroutine(SceneChangeDelay("Tutorial", 1.9f));
     }
 
     public void MainMenu()
@@ -44,13 +53,20 @@ public class MainMenuManager : MonoBehaviour
     // Função para o botão "Sair".
     public void SairGame()
     {
-        // Encerra a aplicação.
-        
-       
-        Application.Quit();
+        _quitAnim.SetTrigger("CastleTrigger");
+        Invoke(nameof(QuitGame), 1.8f);
+    }
 
-        
-        Debug.Log("Saindo do jogo...");
+    private IEnumerator SceneChangeDelay(string SceneName, float time)
+    {
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(SceneName);
+    }
+
+    private void QuitGame()
+    {
+        Debug.Log("Quiting Game");
+        Application.Quit();
     }
 
     private void OnDestroy()
