@@ -204,6 +204,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _rotaAtual: 0
+  _menuManager: {fileID: 0}
 --- !u!114 &759722115294709974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +222,7 @@ MonoBehaviour:
   lastHitTime: -999
   _anim: {fileID: 0}
   _ghost: {fileID: 0}
+  _menuManager: {fileID: 0}
 --- !u!114 &7975458794127882592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,6 +503,11 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0.015763372
       objectReference: {fileID: 0}
+    - target: {fileID: -2619524623129785481, guid: dcc63c7f019542b4eae8a2629ad987e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: baf5d801ccfd66541b1661c93bbf4533, type: 2}
     - target: {fileID: -1862847966932360412, guid: dcc63c7f019542b4eae8a2629ad987e5,
         type: 3}
       propertyPath: m_Layer
