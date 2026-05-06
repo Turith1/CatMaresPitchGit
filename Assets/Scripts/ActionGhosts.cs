@@ -16,6 +16,7 @@ public class ActionGhosts : MonoBehaviour
     public float _distanceEnemy = 20f;
     public float _distanceAttack = 4f;
     public EnemyNavMesh _ronda;
+    public bool _isPersuing;
 
     public int life = 5;
     public int speed = 1;
@@ -29,6 +30,14 @@ public class ActionGhosts : MonoBehaviour
         _playerEffects = targetRb.GetComponent<PlayerEffectsManager>();
         if (targetRb != null)
             player = targetRb.transform;
+    }
+
+    private void FixedUpdate()
+    {
+        if (!_isPersuing)
+            return;
+
+        _agenteFantasma.SetDestination(player.position);
     }
 
     public bool IsPlayerInRange()

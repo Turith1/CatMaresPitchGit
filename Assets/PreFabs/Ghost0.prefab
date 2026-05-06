@@ -147,6 +147,7 @@ MonoBehaviour:
   _distanceEnemy: 20
   _distanceAttack: 1
   _ronda: {fileID: 6055423666940302404}
+  _isPersuing: 0
   life: 5
   speed: 14
 --- !u!114 &-7790250145514781070
@@ -241,6 +242,7 @@ MonoBehaviour:
   - {fileID: 8890718285404603197}
   agent: {fileID: -6781473666295036755}
   animator: {fileID: 159315276120167149}
+  _actionGhost: {fileID: 8890718285404603197}
   renderers: []
   freezeTint: {r: 0.5, g: 0.8, b: 1, a: 1}
   iceVfxPrefab: {fileID: 0}

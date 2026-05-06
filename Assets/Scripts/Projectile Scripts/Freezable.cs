@@ -8,6 +8,8 @@ public class Freezable : MonoBehaviour
     public MonoBehaviour[] aiScripts; 
     public NavMeshAgent agent;
     public Animator animator;
+    [SerializeField]
+    private ActionGhosts _actionGhost;
 
     [Header("Feedback visual (opcional)")]
     public Renderer[] renderers;
@@ -20,6 +22,8 @@ public class Freezable : MonoBehaviour
     public void ApplyFreeze(float seconds)
     {
         if (seconds <= 0f) return;
+
+        Debug.Log(seconds);
 
         if (!frozen)
         {
@@ -34,11 +38,13 @@ public class Freezable : MonoBehaviour
 
     IEnumerator FreezeRoutine(float seconds)
     {
+        _actionGhost._isPersuing = false;
         IsFrozen = true;
         unfreezeAt = Time.time + seconds;
 
         // para movimento/IA
-        if (agent) { agent.isStopped = true; agent.velocity = Vector3.zero; }
+        if (agent) { agent.isStopped = true; agent.ResetPath(); agent.velocity = Vector3.zero;}
+
         if (animator) animator.speed = 0f;
         foreach (var s in aiScripts) if (s) s.enabled = false;
 
@@ -53,6 +59,16 @@ public class Freezable : MonoBehaviour
         if (animator) animator.speed = 1f;
         foreach (var s in aiScripts) if (s) s.enabled = true;
         Tint(false);
+
+        _actionGhost._isPersuing = true;
+        _actionGhost._agenteFantasma.SetDestination(_actionGhost.player.position);
+
+        if (_actionGhost.IsPlayerInRange())
+        {
+            animator.SetBool("Chase", true);
+        }
+        else
+            animator.SetBool("Chase", false);
 
         IsFrozen = false;
     }

@@ -34,15 +34,17 @@ public class MainMenuManager : MonoBehaviour
     {
         // Usa o SceneManager para carregar a cena do jogo.
         //SceneManager.LoadScene("SceneMainGame");
-        _mainGameAnim.SetActive(true);
         StartCoroutine(SceneChangeDelay("SceneMainGame", 1.6f));
+        if(_mainGameAnim != null)
+            _mainGameAnim.SetActive(true);
     }
 
     public void FazerTutorial()
     {
         //SceneManager.LoadScene("Tutorial");
-        _tutorialAnim.SetActive(true);
         StartCoroutine(SceneChangeDelay("Tutorial", 1.9f));
+        if(_tutorialAnim != null)
+            _tutorialAnim.SetActive(true);
     }
 
     public void MainMenu()
@@ -53,8 +55,13 @@ public class MainMenuManager : MonoBehaviour
     // Função para o botão "Sair".
     public void SairGame()
     {
-        _quitAnim.SetTrigger("CastleTrigger");
-        Invoke(nameof(QuitGame), 1.8f);
+        if (_quitAnim != null)
+        {
+            _quitAnim.SetTrigger("CastleTrigger");
+            Invoke(nameof(QuitGame), 1.8f);
+        }
+        else
+            Application.Quit();
     }
 
     private IEnumerator SceneChangeDelay(string SceneName, float time)
