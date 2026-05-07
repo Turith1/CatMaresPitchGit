@@ -33,6 +33,11 @@ public class EnemyControl : StateMachineBehaviour
         if (!_pattrol._menuManager._isPaused && _pattrol.m_agent.isStopped)
             _pattrol.m_agent.isStopped = false;
 
+        if (_pattrol.m_agent.remainingDistance <= _pattrol.m_agent.stoppingDistance)
+        {
+            _pattrol.Ronda();
+        }
+
         if (enemyController.IsPlayerInRange())
         {
             _pattrol.m_agent.speed = _agentSpeed;
@@ -40,9 +45,5 @@ public class EnemyControl : StateMachineBehaviour
             return;
         }
 
-        if (_pattrol.m_agent.remainingDistance <= _pattrol.m_agent.stoppingDistance)
-        {
-            _pattrol.Ronda();
-        }
     }
 }

@@ -10,6 +10,7 @@ public class ActionGhosts : MonoBehaviour
     public NavMeshAgent _agenteFantasma;
     public Transform player;
     private PlayerEffectsManager _playerEffects;
+    private EnemyNavMesh _enemy;
 
     public GameObject powerUpPrefab;
     public GameObject zinimigo;
@@ -17,6 +18,7 @@ public class ActionGhosts : MonoBehaviour
     public float _distanceAttack = 4f;
     public EnemyNavMesh _ronda;
     public bool _isPersuing;
+    public bool _isUpdating;
 
     public int life = 5;
     public int speed = 1;
@@ -26,6 +28,7 @@ public class ActionGhosts : MonoBehaviour
     {
         enemyRb = GetComponent<Rigidbody>();
         _agenteFantasma = GetComponent<NavMeshAgent>();
+        _enemy = GetComponent<EnemyNavMesh>();
         GameObject targetRb = GameObject.FindGameObjectWithTag("Player");
         _playerEffects = targetRb.GetComponent<PlayerEffectsManager>();
         if (targetRb != null)
@@ -34,10 +37,44 @@ public class ActionGhosts : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!_isPersuing)
+        if (!_isUpdating)
             return;
 
-        _agenteFantasma.SetDestination(player.position);
+        if(_isPersuing)
+            _agenteFantasma.SetDestination(player.position);
+        else
+        {
+            if (!_agenteFantasma.pathPending && _agenteFantasma.remainingDistance <= _agenteFantasma.stoppingDistance)
+            {
+                Debug.Log("running");
+                float maxDistance = 0f;
+                Transform bestSpot = null;
+
+                foreach (Transform spot in _enemy._rotaEnemy)
+                {
+                    float distFromPlayer = Vector3.Distance(
+                        spot.position,
+                        player.position);
+
+                    if (distFromPlayer > maxDistance)
+                    {
+                        maxDistance = distFromPlayer;
+                        bestSpot = spot;
+                    }
+                }
+
+                if (bestSpot != null)
+                {
+                    NavMeshPath path = new NavMeshPath();
+
+                    if (_agenteFantasma.CalculatePath(bestSpot.position, path) &&
+                        path.status == NavMeshPathStatus.PathComplete)
+                    {
+                        _agenteFantasma.SetDestination(bestSpot.position);
+                    }
+                }
+            }
+        }
     }
 
     public bool IsPlayerInRange()

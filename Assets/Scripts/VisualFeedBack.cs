@@ -121,7 +121,6 @@ public class VisualFeedBack : MonoBehaviour
 
     private void KillTheTweens()
     {
-        Debug.Log("called");
         _feedBackTween.Kill(false);
         _effectImage.gameObject.SetActive(false);
         _effectImage.color = Color.white;

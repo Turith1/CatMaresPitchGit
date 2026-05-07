@@ -13,8 +13,8 @@ public class ChasePlayer : StateMachineBehaviour
     private float _agentSpeed = 3.5f;
     [SerializeField]
     private PlayerCapture _playerCapture;
-    Transform bestSpot = null;
-    float maxDistance = -1;
+    //Transform bestSpot = null;
+    //float maxDistance = -1;
     public MenuManager _menuManager;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -26,6 +26,7 @@ public class ChasePlayer : StateMachineBehaviour
         {
             enemy.m_agent.SetDestination(enemyController.player.position);
         }
+        Debug.Log("enter called");
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -38,11 +39,15 @@ public class ChasePlayer : StateMachineBehaviour
             return;
         }
         if (!enemy._menuManager._isPaused && enemy.m_agent.isStopped)
+        {
             enemy.m_agent.isStopped = false;
+            //animator.SetBool("Chase", false);
+        }
 
         if (!_playerCapture.canCapture)
         {
             enemyController._isPersuing = true;
+            enemyController._isUpdating = true;
             /*if(enemy.m_agent.remainingDistance <= enemy.m_agent.stoppingDistance)
             {
                 enemy.m_agent.SetDestination(enemyController.player.position);
@@ -50,10 +55,14 @@ public class ChasePlayer : StateMachineBehaviour
         }
         else
         {
+            enemyController._isPersuing = false;
+            enemyController._isUpdating = true;
+        }
+        /*{
             if (_playerCapture.canCapture)
             {
                 enemyController._isPersuing = false;
-                if (!enemy.m_agent.pathPending && enemy.m_agent.remainingDistance <= enemy.m_agent.stoppingDistance)
+                /*if (!enemy.m_agent.pathPending && enemy.m_agent.remainingDistance <= enemy.m_agent.stoppingDistance)
                 {
                     float maxDistance = 0f;
                     Transform bestSpot = null;
@@ -83,13 +92,14 @@ public class ChasePlayer : StateMachineBehaviour
                     }
                 }
             }
-        }
+        }*/
 
         if (!enemyController.IsPlayerInRange())
         {
             enemyController._isPersuing = false;
             enemyController._ronda.m_agent.speed = _agentSpeed;
             animator.SetBool("Chase", false);
+            enemyController._isUpdating = false;
             return;
         }
     }

@@ -44,6 +44,8 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _looksides += (_look.x * _sensitivity);
+
         if (_menuManager._isPaused)
             return;
 
@@ -62,7 +64,6 @@ public class Movement : MonoBehaviour
 
         _playerRB.AddForce(velocityChange, ForceMode.VelocityChange);
 
-        _looksides += (_look.x * _sensitivity);
         Quaternion rotate = Quaternion.Euler(0, _looksides, 0);
         _playerRB.MoveRotation(rotate);
 
@@ -72,8 +73,6 @@ public class Movement : MonoBehaviour
     void LateUpdate()
     {
         //transform.Rotate(_look.x * _sensitivity * Vector3.up);
-        if (_menuManager._isPaused)
-            return;
 
         _lookRotation += (-_look.y * _sensitivity);
         _lookRotation = Mathf.Clamp(_lookRotation, -80, 80);

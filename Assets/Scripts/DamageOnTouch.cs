@@ -31,14 +31,14 @@ public class DamageOnTouch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        TryDamage(other);
+        if(other.CompareTag("Player"))
+            TryDamage(other);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (_menuManager._isPaused)
-            return;
-        TryDamage(other);
+        if(other.CompareTag("Player"))
+            TryDamage(other);
     }
 
     void TryDamage(Collider other)
