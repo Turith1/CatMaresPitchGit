@@ -60,7 +60,7 @@
 			<destination>{a2eba359-8ec3-46e0-8169-3c6fe8eb6dd0}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{5e7c43b1-6078-4971-8e9f-1deefc66cdaa}</destination>
+			<destination>{ce1a565f-42e4-4a36-8dfd-d2c8399f4859}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{02701aa3-64f1-4163-91f4-5fbea2d3b7d4}" />
@@ -150,7 +150,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{953fdd68-150a-4900-bec9-05587683d76d}" />
 	<object class="CommandSound" id="{f7a256aa-94dd-44f3-b034-344790e73d9c}">
-		<property name="name" />
 		<property name="commandType">
 			<value>1</value>
 		</property>
