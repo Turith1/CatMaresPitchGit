@@ -33,6 +33,10 @@ public class Movement : MonoBehaviour
     private MenuManager _menuManager;
     [SerializeField]
     private GameObject _menuCanvas;
+    [SerializeField]
+    private GameObject _menuBTNs;
+    [SerializeField]
+    private GameObject _menuSliders;
 
     // Start is called before the first frame update
     void Start()
@@ -105,8 +109,15 @@ public class Movement : MonoBehaviour
             UnityEngine.Cursor.visible = true;
             _menuCanvas.SetActive(true);
             _menuManager._isPaused = !_menuManager._isPaused;
+            _menuBTNs.SetActive(true);
+            _menuSliders.SetActive(false);
             if (!_menuManager._isPaused)
+            {
+                Debug.Log("Menu closed");
                 _menuCanvas.SetActive(false);
+                UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+                UnityEngine.Cursor.visible = false;
+            }
         }
     }
 
