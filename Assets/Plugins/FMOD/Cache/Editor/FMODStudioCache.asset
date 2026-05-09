@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: FmodProject/ProjectCatmares/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639137942853317254
+  lastModified: 639138776651747155
   FileSizes: []
   Exists: 1
 --- !u!114 &-7607064111615424865
@@ -33,7 +33,7 @@ MonoBehaviour:
   Path: FmodProject/ProjectCatmares/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639137942852702046
+  lastModified: 639138776651427702
   FileSizes:
   - Name: 
     Value: 1560
@@ -131,7 +131,7 @@ MonoBehaviour:
   Path: FmodProject/ProjectCatmares/Build/Desktop/Musics.bank
   Name: Musics
   StudioPath: bank:/Musics
-  lastModified: 639137942853197260
+  lastModified: 639138776651676108
   FileSizes: []
   Exists: 1
 --- !u!114 &-88641917481696143
@@ -200,7 +200,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -7607064111615424865}
   cacheVersion: 131859
-  cacheTime: 639137942853317254
+  cacheTime: 639138776651747155
   SerializableEventsDict:
   - key: event:/MusicTutorial
     index: 0
@@ -299,7 +299,7 @@ MonoBehaviour:
   Path: FmodProject/ProjectCatmares/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639137942852692045
+  lastModified: 639138776651417618
   FileSizes: []
   Exists: 1
 --- !u!114 &1504000545914324213
