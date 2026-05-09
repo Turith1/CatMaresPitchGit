@@ -46,7 +46,6 @@ public class ActionGhosts : MonoBehaviour
         {
             if (!_agenteFantasma.pathPending && _agenteFantasma.remainingDistance <= _agenteFantasma.stoppingDistance)
             {
-                Debug.Log("running");
                 float maxDistance = 0f;
                 Transform bestSpot = null;
 

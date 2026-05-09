@@ -26,6 +26,7 @@ public class PickupItem : MonoBehaviour
         if (item.pickupSfx) AudioSource.PlayClipAtPoint(item.pickupSfx, transform.position);
         if (item.pickupVfxPrefab) Instantiate(item.pickupVfxPrefab, transform.position, Quaternion.identity);
 
-        _proc.RespawnItem(transform, _turnOffItem);
+        if(_proc != null)
+            _proc.RespawnItem(transform, _turnOffItem);
     }
 }

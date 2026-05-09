@@ -26,7 +26,6 @@ public class ChasePlayer : StateMachineBehaviour
         {
             enemy.m_agent.SetDestination(enemyController.player.position);
         }
-        Debug.Log("enter called");
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
